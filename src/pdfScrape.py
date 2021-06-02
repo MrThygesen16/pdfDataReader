@@ -160,19 +160,23 @@ if __name__ == '__main__':
 
         userInput = input("\nEnter pdf file to read from: ")
 
+        # if user accidently ran script: give them opportunity to exit 
         if (userInput == "!q"):
             sys.exit()
         else:
+            # check if script exists or not
             if (os.path.isfile(script_dir+"/"+userInput)):
-                picked = True
+                picked = True #script exists and we exit while loop
             else:
+                # script does not exist
                 print("\nError: please check file name & format... Or Type !q to quit")
                 print("Make sure the pdf file is in the same directory as python script...")
     
-
+    # which pdf file we want to read from
     fileName = os.path.join(script_dir, userInput)
 
     # there are 12 pages in "rsig2.odf"
+    # TODO: make script count # of pages in pdf file
     for x in range(1,13):
         if (x < 10):
             readPDF(fileName, x, outputDir+"page_0"+str(x)+".csv")
