@@ -1,5 +1,5 @@
 # pdfDataReader
-Python Script for extracting data from numerous pages in a PDF document. 
+Python script for extracting tables of data from numerous pages in a PDF document. 
 
 *Note: script is still WIP* 
 
