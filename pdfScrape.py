@@ -4,6 +4,16 @@ import glob
 import sys
 
 
+def getNumberOfPages(fIN):
+    # OPEN PDF FIlE
+    pdfFileObj = open(fIN, 'rb')
+    pdfReader = PyPDF3.PdfFileReader(pdfFileObj)
+    numOfPages = pdfReader.getNumPages()
+    pdfFileObj.close()
+
+    return numOfPages
+
+
 
 def readPDF(fileIn, pageNum, fileOut):
     # OPEN PDF FIlE
@@ -102,6 +112,7 @@ def readPDF(fileIn, pageNum, fileOut):
     print(output)
 
 
+    
 # unused but useful method
 def dataToConsole(oldList):
     otherList = []
@@ -173,9 +184,11 @@ if __name__ == '__main__':
     # which pdf file we want to read from
     fileName = os.path.join(script_dir, "pdfs/"+userInput)
 
-    # there are 12 pages in "rsig2.odf"
-    # make script count # of pages in pdf file
-    for x in range(1,13):
+    # first we read the number of pages in the document
+    numPgs = getNumberOfPages(fileName)
+
+    # we go to numPgs+1 to get every page
+    for x in range(1,numPgs+1):
         if (x < 10):
             readPDF(fileName, x, outputDir+"page_0"+str(x)+".csv")
         else:
