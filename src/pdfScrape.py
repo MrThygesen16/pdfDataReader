@@ -140,7 +140,7 @@ if __name__ == '__main__':
      
     
     for x in range(1,13):
-        readPDF("C:/Users/Michael/Documents/Code/Python/rsig2.pdf", x, "page"+str(x)+".csv")
+        readPDF("C:/Users/Michael/Documents/Code/pdfDataReader/src/rsig2.pdf", x, "page"+str(x)+".csv")
 
     print("\nFile Extraction Completed\n")   
 
