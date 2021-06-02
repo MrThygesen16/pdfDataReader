@@ -122,8 +122,6 @@ def dataToConsole(oldList):
     print(*finalList, sep = "\n")
 
 
- 
-
 
 def writeCSV(data, fileName, nmCol):
     newCol = nmCol - 1    # we do -1 here since arrays are indexed at 0
