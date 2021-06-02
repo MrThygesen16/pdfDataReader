@@ -1,5 +1,8 @@
 import PyPDF3
 import os
+import glob
+import sys
+
 
 
 def readPDF(fileIn, pageNum, fileOut):
@@ -136,7 +139,6 @@ def writeCSV(data, fileName, nmCol):
 
 
 
-
 if __name__ == '__main__':
 
     script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
@@ -145,15 +147,37 @@ if __name__ == '__main__':
     outputDir = "../output/" # output location is a file back, and then in 'ouput'
     outputDir = os.path.join(script_dir, outputDir)
 
-    readDir = "rsig2.pdf" # 'pdf reading from is ine same directory'
-    readDir = os.path.join(script_dir, readDir)
+    # first we delete all files in the output directory
+    # we only want the output of one pdf at a time...
+    files = glob.glob(outputDir+"*.csv")
+    for f in files:
+        os.remove(f)
+
+
+    picked = False
+
+    while (not picked):
+
+        userInput = input("\nEnter pdf file to read from: ")
+
+        if (userInput == "!q"):
+            sys.exit()
+        else:
+            if (os.path.isfile(script_dir+"/"+userInput)):
+                picked = True
+            else:
+                print("\nError: please check file name & format... Or Type !q to quit")
+                print("Make sure the pdf file is in the same directory as python script...")
+    
+
+    fileName = os.path.join(script_dir, userInput)
 
     # there are 12 pages in "rsig2.odf"
     for x in range(1,13):
         if (x < 10):
-            readPDF(readDir, x, outputDir+"page_0"+str(x)+".csv")
+            readPDF(fileName, x, outputDir+"page_0"+str(x)+".csv")
         else:
-            readPDF(readDir, x, outputDir+"page_"+str(x)+".csv")
+            readPDF(fileName, x, outputDir+"page_"+str(x)+".csv")
         
         
     print("\nFile Extraction Completed\n")   
