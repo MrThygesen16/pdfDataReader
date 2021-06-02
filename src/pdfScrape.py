@@ -1,4 +1,6 @@
 import PyPDF3
+import os
+
 
 def readPDF(fileIn, pageNum, fileOut):
     # OPEN PDF FIlE
@@ -121,7 +123,7 @@ def dataToConsole(oldList):
 
 
 def writeCSV(data, fileName, nmCol):
-    newCol = nmCol - 1    # we do -1 here since arrays are index at 0
+    newCol = nmCol - 1    # we do -1 here since arrays are indexed at 0
     with open(fileName, "w") as file:     
         for item in data:
             for x in range(0,len(item)):
@@ -137,9 +139,16 @@ def writeCSV(data, fileName, nmCol):
 
 if __name__ == '__main__':
 
-    outputDir = "C:/Users/Michael/Documents/Code/pdfDataReader/output/"
-    readDir = "C:/Users/Michael/Documents/Code/pdfDataReader/src/rsig2.pdf"
-    
+    script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
+    # we do this so that this script can work in any directory...
+
+    outputDir = "../output/" # output location is a file back, and then in 'ouput'
+    outputDir = os.path.join(script_dir, outputDir)
+
+    readDir = "rsig2.pdf" # 'pdf reading from is ine same directory'
+    readDir = os.path.join(script_dir, readDir)
+
+    # there are 12 pages in "rsig2.odf"
     for x in range(1,13):
         if (x < 10):
             readPDF(readDir, x, outputDir+"page_0"+str(x)+".csv")
@@ -147,7 +156,6 @@ if __name__ == '__main__':
             readPDF(readDir, x, outputDir+"page_"+str(x)+".csv")
         
         
-
     print("\nFile Extraction Completed\n")   
 
 #   selected = False
