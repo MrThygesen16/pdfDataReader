@@ -137,13 +137,14 @@ def writeCSV(data, fileName, nmCol):
 
 if __name__ == '__main__':
 
-     
+    outputDir = "C:/Users/Michael/Documents/Code/pdfDataReader/output/"
+    readDir = "C:/Users/Michael/Documents/Code/pdfDataReader/src/rsig2.pdf"
     
     for x in range(1,13):
         if (x < 10):
-            readPDF("C:/Users/Michael/Documents/Code/pdfDataReader/src/rsig2.pdf", x, "page_0"+str(x)+".csv")
+            readPDF(readDir, x, outputDir+"page_0"+str(x)+".csv")
         else:
-            readPDF("C:/Users/Michael/Documents/Code/pdfDataReader/src/rsig2.pdf", x, "page_"+str(x)+".csv")
+            readPDF(readDir, x, outputDir+"page_"+str(x)+".csv")
         
         
 
