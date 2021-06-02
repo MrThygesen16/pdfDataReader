@@ -14,6 +14,7 @@ Python Script for extracting data from numerous pages in a PDF document.
 1. Place the PDF file you want extracted into the folder `pdfs`
 2. Run the script and enter the name of PDF file when prompted
 3. The output of this script will be placed in the `output` folder
+    * Note: the contents of the folder `output` is deleted everytime the script is run
 
 
 For Example, the PDF file `rsig2.pdf`, that's already in the `pdfs` folder:
@@ -33,7 +34,7 @@ For Example, the PDF file `rsig2.pdf`, that's already in the `pdfs` folder:
 
     File Extraction Completed
     
- Now when we check the contents of `output`:
+ Now when we check the contents of the folder `output`:
  
      page_01.csv
      page_02.csv
