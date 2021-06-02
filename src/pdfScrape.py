@@ -140,7 +140,12 @@ if __name__ == '__main__':
      
     
     for x in range(1,13):
-        readPDF("C:/Users/Michael/Documents/Code/pdfDataReader/src/rsig2.pdf", x, "page"+str(x)+".csv")
+        if (x < 10):
+            readPDF("C:/Users/Michael/Documents/Code/pdfDataReader/src/rsig2.pdf", x, "page_0"+str(x)+".csv")
+        else:
+            readPDF("C:/Users/Michael/Documents/Code/pdfDataReader/src/rsig2.pdf", x, "page_"+str(x)+".csv")
+        
+        
 
     print("\nFile Extraction Completed\n")   
 
