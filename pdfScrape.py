@@ -144,7 +144,7 @@ if __name__ == '__main__':
     script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
     # we do this so that this script can work in any directory...
 
-    outputDir = "../output/" # output location is a file back, and then in 'ouput'
+    outputDir = "output/" # output location is a file back, and then in 'ouput'
     outputDir = os.path.join(script_dir, outputDir)
 
     # first we delete all files in the output directory
@@ -164,19 +164,19 @@ if __name__ == '__main__':
         if (userInput == "!q"):
             sys.exit()
         else:
-            # check if script exists or not
-            if (os.path.isfile(script_dir+"/"+userInput)):
-                picked = True #script exists and we exit while loop
+            # check if pdf file exists or not
+            if (os.path.isfile(script_dir+"/pdfs/"+userInput)):
+                picked = True #file exists and we exit while loop
             else:
-                # script does not exist
+                # file does not exist
                 print("\nError: please check file name & format... Or Type !q to quit")
-                print("Make sure the pdf file is in the same directory as python script...")
+                print("Make sure the pdf file is in the \"pdfs\" folder...")
     
     # which pdf file we want to read from
-    fileName = os.path.join(script_dir, userInput)
+    fileName = os.path.join(script_dir, "pdfs/"+userInput)
 
     # there are 12 pages in "rsig2.odf"
-    # TODO: make script count # of pages in pdf file
+    # make script count # of pages in pdf file
     for x in range(1,13):
         if (x < 10):
             readPDF(fileName, x, outputDir+"page_0"+str(x)+".csv")
