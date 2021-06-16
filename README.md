@@ -22,15 +22,15 @@ For Example, the PDF file `rsig2.pdf`, that's already in the `pdfs` folder:
 
     Enter pdf file to read from: rsig2.pdf
 
-    Wrote Contents of Page [1] to [c:\Users\Michael\Documents\Code\pdfDataReader\output/page_01.csv]
+    Wrote Contents of Page [1] to [c:\Users\Michael\Documents\Code\pdfDataReader\output\page_01.csv]
 
-    Wrote Contents of Page [2] to [c:\Users\Michael\Documents\Code\pdfDataReader\output/page_02.csv]
+    Wrote Contents of Page [2] to [c:\Users\Michael\Documents\Code\pdfDataReader\output\page_02.csv]
 
     ...       ...       ...       ...       ...       ...       ...       ...       ...       ...
     
-    Wrote Contents of Page [11] to [c:\Users\Michael\Documents\Code\pdfDataReader\output/page_11.csv]
+    Wrote Contents of Page [11] to [c:\Users\Michael\Documents\Code\pdfDataReader\output\page_11.csv]
 
-    Wrote Contents of Page [12] to [c:\Users\Michael\Documents\Code\pdfDataReader\output/page_12.csv]
+    Wrote Contents of Page [12] to [c:\Users\Michael\Documents\Code\pdfDataReader\output\page_12.csv]
 
     File Extraction Completed
     
@@ -42,3 +42,8 @@ For Example, the PDF file `rsig2.pdf`, that's already in the `pdfs` folder:
      page11.csv
      page12.csv
   
+  
+  N.B. The way this works in 'recognising' the tables is that it uses a start and an end index. 
+  Essentially we must find a rule that can satisify the beginning of a new column/row - which is figured out after the table has been recognised...
+  
+  A little bit of tweaking to the script must be done so that a specific PDF file will work and produce an ideal output.
