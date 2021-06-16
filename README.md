@@ -20,7 +20,7 @@ Python script for extracting tables of data from numerous pages in a PDF documen
 For Example, the PDF file `rsig2.pdf`, that's already in the `pdfs` folder:
 
 
-    Enter pdf file to read from: rsig2.pdf
+    Enter pdf file to read from: **rsig2.pdf**
 
     Wrote Contents of Page [1] to [c:\Users\Michael\Documents\Code\pdfDataReader\output/page_01.csv]
 
