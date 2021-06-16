@@ -189,9 +189,9 @@ if __name__ == '__main__':
 
     # we go to numPgs+1 to get every page
     for x in range(1,numPgs+1):
-        if (x < 10):
+        if (x < 10): # formats name of file based on number of pages
             readPDF(fileName, x, outputDir+"page_0"+str(x)+".csv")
-        else:
+        else: 
             readPDF(fileName, x, outputDir+"page_"+str(x)+".csv")
         
         
